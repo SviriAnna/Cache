@@ -17,7 +17,7 @@ public class LRU<K> extends RemovalStrategy<K>{
             }
             getDq().addFirst(key);
             getSet().add(key);
-        }else {
+        } else {
             if(getDq().getFirst() != key) {
                 getDq().remove(key);
                 getDq().addFirst(key);
