@@ -4,8 +4,8 @@ import java.util.*;
 
 public abstract class RemovalStrategy<K> {
 
-    private final Deque<K> dq ;//очередь из ключей
-    private final HashSet<K> set;//для отслеживания ключа в dq
+    private final Deque<K> dq ;
+    private final HashSet<K> set;
     private final int capacity;
 
     public RemovalStrategy(int capacity) {

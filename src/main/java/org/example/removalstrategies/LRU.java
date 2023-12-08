@@ -11,25 +11,16 @@ public class LRU<K> extends RemovalStrategy<K>{
     }
 
     public void put(K key) {
-        if(! getSet().contains(key)) {//key not present in cache
+        if(! getSet().contains(key)) {
             if(getDq().size() == getCapacity()) {
                 getSet().remove(getDq().removeLast());
             }
             getDq().addFirst(key);
             getSet().add(key);
-        }else {//key present in cache
-            //get key location
-            if((getDq()).getFirst() != key) {
-                Iterator<K> it = getDq().iterator();
-                while(it.hasNext()) {
-                    if(it.next() == key) {
-                        it.remove();
-                        break;
-                    }
-                }
-                //dq.remove(index);//not removing that element from list - since this is DQ not array
+        }else {
+            if(getDq().getFirst() != key) {
+                getDq().remove(key);
                 getDq().addFirst(key);
-                //getSet().add(key);
             }
         }
     }
